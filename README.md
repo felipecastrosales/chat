@@ -1,5 +1,5 @@
  <p align="center">
-      <img src="https://user-images.githubusercontent.com/59374587/92953594-5c2cb080-f438-11ea-9a12-9e04714f92d1.gif" width="169px" alt="https://stories.freepik.com/work Illustration by Freepik Stories"/>
+      <img src="https://user-images.githubusercontent.com/59374587/94870148-34b87a80-041d-11eb-85d2-e1e6aac7af28.png" width="200px" alt="https://stories.freepik.com/work Illustration by Freepik Stories"/>
 </p>
 
 <h1 align="center">Chat</h1>
