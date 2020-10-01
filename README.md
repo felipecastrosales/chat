@@ -1,16 +1,70 @@
-# chat
+ <p align="center">
+      <img src="https://user-images.githubusercontent.com/59374587/92953594-5c2cb080-f438-11ea-9a12-9e04714f92d1.gif" width="169px" alt="https://stories.freepik.com/work Illustration by Freepik Stories"/>
+</p>
 
-A new Flutter application.
+<h1 align="center">Chat</h1>
 
-## Getting Started
+<h2 align="center">About 📖</h2>
+   
+<p align="center">   
+   A simple Chat developed with Flutter 💙 and Firebase 💛.<br>
+   With this application you can chat with people, acessing it via your Google Account, sending and receiving messages and photos, and entering different accounts with each message you send.
+   As a backend, I used Firebase, noSQL and in real time, which gives you flexibility, easy development, manipulation and structuring, you can see more on the <a href="https://firebase.google.com/">Firebase Website</a>.<br>
+   This application is in version 1.0.
+</p>
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+<h2 align="center">Preview 📱</h2><br>
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+   <p align="center">
+      <img src="demos/chat_demo1.gif">
+   </p>
+   
+   > * See also in [`demos`](https://github.com/felipecastrosales/Chat/tree/master/demos) folder. 🧐📂
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+<h2 align="center">Challenges and Learnings along the way 🤯</h2>
+
+   <p>
+    This application was very challenging for me, but it was very good for my learning about backend, and I loved this experience of developing one on Firebase, which I had heard about, but never created anything, and I was so impressed functionality!<br>
+    All these moments of problems only increased my interest in this incredible world of programming, which I hope to secceed and stay focused on, I am loving it! Is sensational!
+   </p>
+
+---
+
+<h2 align="center">How to Use 🤔</h2>
+
+   ```   
+   - Clone this repository:
+   $ git clone https://github.com/felipecastrosales/Chat Chat
+
+   - Enter in directory:
+   $ cd Chat
+
+   - For install dependencies:
+   $ flutter packages get
+
+   - Run the app: 
+   $ flutter run
+   ```
+
+---
+
+<h2 align="center">License 📝</h2>
+
+   This repository is under MIT license. You can see the [LICENSE](https://github.com/felipecastrosales/Chat/blob/master/LICENSE) file for more details. 😉
+
+   ---
+
+   >This project was developed with ❤️ by **[@Felipe Sales](https://www.linkedin.com/in/felipecastrosales/)**, with the instructor **[Daniel Ciolfi](https://linkedin.com/in/danielciolfi)**, in the course  **["Creating Android and iOS Apps with Flutter - Create 16 Apps"](https://www.udemy.com/course/curso-completo-flutter-app-android-ios)** on **[Udemy](https://www.udemy.com/)**.<br>
+   If it helped you, give ⭐, contribute, it will help me too 😉
+
+---
+
+   <div align="center">
+
+   [![Linkedin Badge](https://img.shields.io/badge/-Felipe%20Sales-292929?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/felipecastrosales/)](https://www.linkedin.com/in/felipecastrosales/)
+
+   </div>
