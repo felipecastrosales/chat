@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class ChatMessage extends StatelessWidget {
 
+  // ignore: avoid_positional_boolean_parameters
   ChatMessage(this.data, this.mine);
 
   final Map<String, dynamic> data;
@@ -15,37 +16,39 @@ class ChatMessage extends StatelessWidget {
         children: <Widget>[
           !mine ?
           Padding(
-            padding: const EdgeInsets.only(right: 16.0),
+            padding: const EdgeInsets.only(right: 16),
             child: CircleAvatar(
               backgroundImage: NetworkImage(data['senderPhotoUrl']),
             ),
           ) : Container(),
           Expanded(
             child: Column(
-              crossAxisAlignment: mine ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+              crossAxisAlignment: mine 
+                ? CrossAxisAlignment.end 
+                : CrossAxisAlignment.start,
               children: <Widget>[
-                data['imgUrl'] != null ?
-                    Image.network(data['imgUrl'], width: 250,)
-                : Text(
-                  data['text'],
-                  textAlign: mine ? TextAlign.end : TextAlign.start,
-                  style: TextStyle(
-                    fontSize: 18,
+                data['imgUrl'] != null 
+                  ? Image.network(data['imgUrl'], width: 250)
+                  : Text(
+                    data['text'],
+                    textAlign: mine 
+                    ? TextAlign.end 
+                    : TextAlign.start,
+                    style: TextStyle(fontSize: 18),
                   ),
-                ),
-                Text(
-                  data['senderName'],
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w500,
+                  Text(
+                    data['senderName'],
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
-                ),
               ],
             ),
           ),
           mine ?
           Padding(
-            padding: const EdgeInsets.only(left: 16.0),
+            padding: const EdgeInsets.only(left: 16),
             child: CircleAvatar(
               backgroundImage: NetworkImage(data['senderPhotoUrl']),
             ),

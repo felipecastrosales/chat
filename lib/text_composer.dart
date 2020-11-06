@@ -4,9 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 class TextComposer extends StatefulWidget {
-
   TextComposer(this.sendMessage);
-
   final Function({String text, File imgFile}) sendMessage;
 
   @override
@@ -14,9 +12,7 @@ class TextComposer extends StatefulWidget {
 }
 
 class _TextComposerState extends State<TextComposer> {
-
   final TextEditingController _controller = TextEditingController();
-
   bool _isComposing = false;
 
   void _reset(){
@@ -35,7 +31,8 @@ class _TextComposerState extends State<TextComposer> {
           IconButton(
             icon: Icon(Icons.photo_camera),
             onPressed: () async {
-              final File imgFile =
+              final imgFile =
+              // ignore: deprecated_member_use
               await ImagePicker.pickImage(source: ImageSource.gallery);
               if (imgFile == null) return;
               widget.sendMessage(imgFile: imgFile);
@@ -44,7 +41,8 @@ class _TextComposerState extends State<TextComposer> {
           Expanded(
             child: TextField(
               controller: _controller,
-              decoration: InputDecoration.collapsed(hintText: 'Enviar mensagem...'),
+              decoration: InputDecoration.collapsed(
+                hintText: 'Enviar mensagem...'),
               onChanged: (text){
                 setState(() {
                   _isComposing = text.isNotEmpty;
