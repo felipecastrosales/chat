@@ -10,15 +10,10 @@
 <p>
    
 - [About 📖](#about-)
-
 - [Preview 📱](#preview-)
-
 - [Challenges and Learnings along the way 🤯](#challenges-and-learnings-along-the-way-)
-
 - [How to Use 🤔](#how-to-use-)
-
 - [How to Contribute 💪](#how-to-contribute-)
-
 - [License 📝](#license-)
 
 <p>
