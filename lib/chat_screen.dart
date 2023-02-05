@@ -55,7 +55,7 @@ class _ChatScreenState extends State<ChatScreen> {
   void _sendMessage({String text, File imgFile}) async {
     final user = await _getUser();
     if (user == null) {
-      _scaffoldKey.currentState.showSnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content:
             Text('Não foi  possível realizar seu login. Tente novamente...'),
@@ -108,7 +108,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 onPressed: () {
                   FirebaseAuth.instance.signOut();
                   googleSignIn.signOut();
-                  _scaffoldKey.currentState.showSnackBar(
+                  ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(content: Text('Você saiu com sucesso.')),
                   );
                 },
