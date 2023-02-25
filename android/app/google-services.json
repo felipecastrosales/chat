@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "399414095535",
+    "firebase_url": "https://chatflutter-4ff25.firebaseio.com",
+    "project_id": "chatflutter-4ff25",
+    "storage_bucket": "chatflutter-4ff25.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:399414095535:android:d31e86f5d91129397c2e5a",
+        "android_client_info": {
+          "package_name": "felipecastrosales.chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "399414095535-cabk5iivjuan5fb90n9nkvhvti9bl185.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "felipecastrosales.chat",
+            "certificate_hash": "cadbb298834aa218e6ccd83b965dd83f96e5874d"
+          }
+        },
+        {
+          "client_id": "399414095535-dmi7pddce590lmljrqvemvhgh22tso5c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYGifYHG7-wIKR2PoDAfVPhaKNllmunTk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "399414095535-dmi7pddce590lmljrqvemvhgh22tso5c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
