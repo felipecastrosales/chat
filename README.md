@@ -32,7 +32,7 @@
 <h2 align="center">Preview 📱</h2><br>
 
    <p align="center">
-      <img src="demos/chat_demo2.gif" width="400px">
+      <img src="demos/chat_demo2.mp4" width="400px">
    </p>
    
    > * See also in [`demos`](https://github.com/felipecastrosales/Chat/tree/master/demos) folder. 🧐📂
