@@ -1,55 +1,50 @@
- <p align="center">
-      <img src="https://user-images.githubusercontent.com/59374587/94870148-34b87a80-041d-11eb-85d2-e1e6aac7af28.png" width="200px" alt="https://stories.freepik.com/work Illustration by Freepik Stories"/>
+<p align="center">
+   <img src="https://user-images.githubusercontent.com/59374587/94870148-34b87a80-041d-11eb-85d2-e1e6aac7af28.png" width="200px" alt="https://stories.freepik.com/work Illustration by Freepik Stories"/>
 </p>
 
-<h1 align="center">Chat</h1>
+<h1>Chat</h1>
 
+<h2>Topics 📋</h2>
 
-<h2 align="center">Topics 📋</h2>
-
-<p>
-   
-- [About 📖](#about-)
 - [Preview 📱](#preview-)
 - [Challenges and Learnings along the way 🤯](#challenges-and-learnings-along-the-way-)
 - [How to Use 🤔](#how-to-use-)
 - [How to Contribute 💪](#how-to-contribute-)
 - [License 📝](#license-)
 
-<p>
 
-<h2 align="center">About 📖</h2>
-   
-<p align="center">   
-   A simple Chat developed with Flutter 💙 and Firebase 💛.<br>
-   With this application you can chat with people, acessing it via your Google Account, sending and receiving messages and photos, and entering different accounts with each message you send.
-   As a backend, I used Firebase, noSQL and in real time, which gives you flexibility, easy development, manipulation and structuring, you can see more on the <a href="https://firebase.google.com/">Firebase Website</a>.<br>
-   This application is in version 2.0.0, using Flutter 3.7.0 and latest versions of all dependencies.
-</p>
+<h2>About 📖</h2>
+
+A simple Chat developed with Flutter 💙 and Firebase 💛.
+
+With this application you can chat with people, acessing it via your Google Account, sending and receiving messages and photos, and entering different accounts with each message you send.
+
+As a backend, I used Firebase, noSQL and in real time, which gives you flexibility, easy development, manipulation and structuring, you can see more on the <a href="https://firebase.google.com/">Firebase Website</a>.
+
+This application is in version 2.0.0, using Flutter 3.7.0 and latest versions of all dependencies.
+
 
 ---
 
-<h2 align="center">Preview 📱</h2><br>
+## Preview 📱
 
-   <p align="center">
-      <img src="demos/chat_demo2.gif" width="400px">
-   </p>
-   
+https://user-images.githubusercontent.com/59374587/221328051-5fc89706-b6b7-4312-b67a-2c6468020e57.mp4
+
    > * See also in [`demos`](https://github.com/felipecastrosales/Chat/tree/master/demos) folder. 🧐📂
 
 ---
 
-<h2 align="center">Challenges and Learnings along the way 🤯</h2>
+## Challenges and Learnings along the way 🤯
 
-   <p>
-    This application was very challenging for me, but it was very good for my learning about backend, and I loved this experience of developing one on Firebase, which I had heard about, but never created anything, and I was so impressed functionality!<br>
-    All these moments of problems only increased my interest in this incredible world of programming, which I hope to secceed and stay focused on, I am loving it! Is sensational!<br>
-    Another challenge I faced was updating the project. Because it had been coded 3 years ago, and the update was not that simple. It was a cool experience and one that brought me good learnings.
-   </p>
+This application was very challenging for me, but it was very good for my learning about backend, and I loved this experience of developing one on Firebase, which I had heard about, but never created anything, and I was so impressed functionality!
+
+All these moments of problems only increased my interest in this incredible world of programming, which I hope to secceed and stay focused on, I am loving it! Is sensational!
+
+Another challenge I faced was updating the project. Because it had been coded 3 years ago, and the update was not that simple. It was a cool experience and one that brought me good learnings.
 
 ---
 
-<h2 align="center">How to Use 🤔</h2>
+## How to Use 🤔
 
    ```   
    - Clone this repository:
@@ -70,7 +65,7 @@
 
 ---
 
-<h2 align="center">How to Contribute 💪</h2>
+## How to Contribute 💪
 
    ```
    - Fork the project 
@@ -87,7 +82,7 @@
 
 ---
 
-<h2 align="center">License 📝</h2>
+## License 📝
 
    This repository is under MIT license. You can see the [LICENSE](https://github.com/felipecastrosales/Chat/blob/master/LICENSE) file for more details. 😉
 
@@ -98,7 +93,7 @@
 
 ---
 
-   <div align="center">
+   <div>
 
    [![Linkedin Badge](https://img.shields.io/badge/-Felipe%20Sales-292929?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/felipecastrosales/)](https://www.linkedin.com/in/felipecastrosales/)
 
