@@ -24,7 +24,7 @@
    A simple Chat developed with Flutter 💙 and Firebase 💛.<br>
    With this application you can chat with people, acessing it via your Google Account, sending and receiving messages and photos, and entering different accounts with each message you send.
    As a backend, I used Firebase, noSQL and in real time, which gives you flexibility, easy development, manipulation and structuring, you can see more on the <a href="https://firebase.google.com/">Firebase Website</a>.<br>
-   This application is in version 1.0.
+   This application is in version 2.0.0, using Flutter 3.7.0 and latest versions of all dependencies.
 </p>
 
 ---
@@ -32,7 +32,7 @@
 <h2 align="center">Preview 📱</h2><br>
 
    <p align="center">
-      <img src="demos/chat_demo1.gif" width="400px">
+      <img src="demos/chat_demo2.gif" width="400px">
    </p>
    
    > * See also in [`demos`](https://github.com/felipecastrosales/Chat/tree/master/demos) folder. 🧐📂
@@ -43,7 +43,8 @@
 
    <p>
     This application was very challenging for me, but it was very good for my learning about backend, and I loved this experience of developing one on Firebase, which I had heard about, but never created anything, and I was so impressed functionality!<br>
-    All these moments of problems only increased my interest in this incredible world of programming, which I hope to secceed and stay focused on, I am loving it! Is sensational!
+    All these moments of problems only increased my interest in this incredible world of programming, which I hope to secceed and stay focused on, I am loving it! Is sensational!<br>
+    Another challenge I faced was updating the project. Because it had been coded 3 years ago, and the update was not that simple. It was a cool experience and one that brought me good learnings.
    </p>
 
 ---
@@ -52,13 +53,16 @@
 
    ```   
    - Clone this repository:
-   $ git clone https://github.com/felipecastrosales/Chat Chat
+   $ git clone https://github.com/felipecastrosales/Chat 
 
    - Enter in directory:
-   $ cd Chat
+   $ cd chat
+
+   - Enter with VSCode:
+   $ code .
 
    - For install dependencies:
-   $ flutter packages get
+   $ flutter pub get
 
    - Run the app: 
    $ flutter run
