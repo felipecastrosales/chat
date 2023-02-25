@@ -1,94 +1,113 @@
 import 'dart:io';
+
+import 'package:flutter/material.dart';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+
 import 'chat_message.dart';
 import 'text_composer.dart';
 
 class ChatScreen extends StatefulWidget {
+  const ChatScreen({super.key});
+
   @override
-  _ChatScreenState createState() => _ChatScreenState();
+  State<StatefulWidget> createState() => _ChatScreenState();
 }
 
 class _ChatScreenState extends State<ChatScreen> {
-  final GoogleSignIn googleSignIn = GoogleSignIn();
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
+  final googleSignIn = GoogleSignIn();
+  final firebaseAuth = FirebaseAuth.instance;
+  final firestoreCollection = FirebaseFirestore.instance.collection('messages');
 
-  FirebaseUser _currentUser;
+  User? _currentUser;
   bool _isLoading = false;
 
   @override
   void initState() {
     super.initState();
-    FirebaseAuth.instance.onAuthStateChanged.listen((user) {
-      setState(() {
-        _currentUser = user;
+    if (mounted) {
+      firebaseAuth.authStateChanges().listen((user) {
+        if (user != null) {
+          setState(() => _currentUser = user);
+        } else {
+          setState(() => _currentUser = null);
+        }
       });
-    });
+    }
   }
 
-  Future<FirebaseUser> _getUser() async {
+  Future<User?> _getUser() async {
     if (_currentUser != null) return _currentUser;
 
     try {
-      final googleSignInAccount =
-        await googleSignIn.signIn();
+      final googleSignInAccount = await googleSignIn.signIn();
       final googleSignInAuthentication =
-        await googleSignInAccount.authentication;
-      final credential = GoogleAuthProvider.getCredential(
+          await googleSignInAccount?.authentication;
+
+      if (googleSignInAccount == null) return null;
+      if (googleSignInAuthentication == null) return null;
+
+      final credential = GoogleAuthProvider.credential(
         idToken: googleSignInAuthentication.idToken,
         accessToken: googleSignInAuthentication.accessToken,
       );
 
-      final authResult =
-        await FirebaseAuth.instance.signInWithCredential(credential);
+      final authResult = await firebaseAuth.signInWithCredential(credential);
       final user = authResult.user;
       return user;
-    // ignore: avoid_catches_without_on_clauses
-    } catch (error) {
+    } catch (e, s) {
+      debugPrint('Erro ao realizar login: $e');
+      debugPrint('Stack trace: $s');
       return null;
     }
   }
 
-  void _sendMessage({String text, File imgFile}) async {
+  Future<void> _sendMessage({
+    File? imgFile,
+    String? text,
+  }) async {
     final user = await _getUser();
     if (user == null) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content:
-            Text('Não foi  possível realizar seu login. Tente novamente...'),
-          backgroundColor: Colors.red,
-        ),
-      );
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            backgroundColor: Colors.red,
+            content: Text(
+              'Não foi  possível realizar seu login. Tente novamente...',
+            ),
+          ),
+        );
+      }
     }
 
-    var data = <String, dynamic>{
-      'uid': user.uid,
-      'senderName': user.displayName,
-      'senderPhotoUrl': user.photoUrl,
-      'time': Timestamp.now(),
-    };
+    if (user != null) {
+      var data = <String, dynamic>{
+        'uid': user.uid,
+        'senderName': user.displayName,
+        'senderPhotoUrl': user.photoURL,
+        'time': Timestamp.now(),
+      };
 
-    if (imgFile != null) {
-      var task = FirebaseStorage.instance
-        .ref()
-        .child(user.uid + DateTime.now().millisecondsSinceEpoch.toString())
-        .putFile(imgFile);
-      setState(() {
-        _isLoading = true;
-      });
+      final task = FirebaseStorage.instance.ref().child(
+            user.uid + DateTime.now().millisecondsSinceEpoch.toString(),
+          );
 
-      var taskSnapshot = await task.onComplete;
-      String url = await taskSnapshot.ref.getDownloadURL();
-      data['imgUrl'] = url;
-      setState(() {
-        _isLoading = false;
-      });
+      if (imgFile != null) {
+        setState(() => _isLoading = true);
+        final taskWithImage = task.putFile(imgFile);
+        var taskSnapshot = await taskWithImage.whenComplete(() {});
+        String url = await taskSnapshot.ref.getDownloadURL();
+        data['imgUrl'] = url;
+      } else {
+        data['text'] = text;
+      }
+      setState(() => _isLoading = false);
+      firestoreCollection.add(data);
     }
-    if (text != null) data['text'] = text;
-    Firestore.instance.collection('messages').add(data);
   }
 
   @override
@@ -96,56 +115,67 @@ class _ChatScreenState extends State<ChatScreen> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        title: Text(_currentUser != null
-          ? 'Olá, ${_currentUser.displayName}'
-          : 'Chat App'),
-        centerTitle: true,
         elevation: 0,
+        centerTitle: true,
+        title: Text(
+          _currentUser != null
+              ? 'Olá, ${_currentUser?.displayName ?? 'Nome não informado.'}'
+              : 'Chat App',
+        ),
         actions: <Widget>[
           _currentUser != null
               ? IconButton(
-                icon: Icon(Icons.exit_to_app, color: Colors.white),
-                onPressed: () {
-                  FirebaseAuth.instance.signOut();
-                  googleSignIn.signOut();
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('Você saiu com sucesso.')),
-                  );
-                },
-              ) 
-              : Container()
+                  icon: const Icon(
+                    Icons.exit_to_app,
+                    color: Colors.white,
+                  ),
+                  onPressed: () {
+                    firebaseAuth.signOut();
+                    googleSignIn.signOut();
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Você saiu com sucesso.'),
+                      ),
+                    );
+                  },
+                )
+              : const SizedBox(),
         ],
       ),
       body: Column(
         children: <Widget>[
           Expanded(
             child: StreamBuilder<QuerySnapshot>(
-              stream: Firestore.instance
-                .collection('messages')
-                .orderBy('time')
-                .snapshots(),
+              stream: firestoreCollection.orderBy('time').snapshots(),
               builder: (context, snapshot) {
                 switch (snapshot.connectionState) {
                   case ConnectionState.none:
                   case ConnectionState.waiting:
-                    return Center(child: CircularProgressIndicator());
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
                   default:
-                    var documents = snapshot.data.documents.reversed.toList();
+                    var documents = snapshot.data?.docs.reversed.toList() ??
+                        <QueryDocumentSnapshot>[];
                     return ListView.builder(
                       itemCount: documents.length,
                       reverse: true,
                       itemBuilder: (context, index) {
+                        final document = documents[index];
                         return ChatMessage(
-                            documents[index].data,
-                            documents[index].data['uid'] == _currentUser?.uid);
-                      }
+                          data: document.data() as Map<String, dynamic>,
+                          isMine: document['uid'] == _currentUser?.uid,
+                        );
+                      },
                     );
                 }
               },
             ),
           ),
-          _isLoading ? LinearProgressIndicator() : Container(),
-          TextComposer(_sendMessage),
+          _isLoading ? const LinearProgressIndicator() : const SizedBox(),
+          TextComposer(
+            sendMessage: _sendMessage,
+          ),
         ],
       ),
     );
