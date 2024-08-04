@@ -15,14 +15,11 @@
 
 <h2>About 📖</h2>
 
-A simple Chat developed with Flutter 💙 and Firebase 💛.
+Chat App with Flutter 💙 and Firebase 💛.
 
 With this application you can chat with people, acessing it via your Google Account, sending and receiving messages and photos, and entering different accounts with each message you send.
 
 As a backend, I used Firebase, noSQL and in real time, which gives you flexibility, easy development, manipulation and structuring, you can see more on the <a href="https://firebase.google.com/">Firebase Website</a>.
-
-This application is in version 2.0.0, using Flutter 3.7.0 and latest versions of all dependencies.
-
 
 ---
 

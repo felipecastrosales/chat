@@ -8,12 +8,49 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:399414095535:android:1c143e03eeffa2667c2e5a",
+        "android_client_info": {
+          "package_name": "com.felipecastrosales.chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "399414095535-dmi7pddce590lmljrqvemvhgh22tso5c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYGifYHG7-wIKR2PoDAfVPhaKNllmunTk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "399414095535-dmi7pddce590lmljrqvemvhgh22tso5c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:399414095535:android:d31e86f5d91129397c2e5a",
         "android_client_info": {
           "package_name": "felipecastrosales.chat"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "399414095535-arho5k70h5hqofu6ius44khc8q94ahuv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "felipecastrosales.chat",
+            "certificate_hash": "b168474fa3c1d31ec93022c4219bd77aa9f8300b"
+          }
+        },
         {
           "client_id": "399414095535-cabk5iivjuan5fb90n9nkvhvti9bl185.apps.googleusercontent.com",
           "client_type": 1,

@@ -10,6 +10,7 @@ class ChatApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final future = Firebase.initializeApp();
+
     return MaterialApp(
       title: 'Chat Flutter',
       debugShowCheckedModeBanner: false,
